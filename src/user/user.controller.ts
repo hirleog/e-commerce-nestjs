@@ -22,7 +22,7 @@ export class UserController {
   }
   @Get()
   findOneByEmail(email: string) {
-    return this.userService.findByEmail('paulo@salvatore.tech');
+    return this.userService.findByEmail(email);
   }
 
   // @Patch(':id')

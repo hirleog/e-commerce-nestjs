@@ -5,6 +5,10 @@ import { UserController } from './user.controller';
 
 @Module({
   controllers: [UserController],
-  providers: [UserService,PrismaService]
+  providers: [
+    UserService,
+    PrismaService
+  ],
+  exports: [UserModule]
 })
-export class UserModule {}
+export class UserModule { }
