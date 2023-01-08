@@ -20,6 +20,10 @@ export class UserController {
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }
+  @Get()
+  findOneByEmail(email: string) {
+    return this.userService.findByEmail('paulo@salvatore.tech');
+  }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {

@@ -9,7 +9,7 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) { }
 
   async create(createUserDto: CreateUserDto) {
-    
+
     // mostra a msg de erro apenas no terminal
     const emailExist = await this.prisma.user.findFirst({
       where: {
@@ -26,22 +26,28 @@ export class UserService {
     }
     return this.prisma.user.create({
       data: user
-      
+
     })
   }
 
   async findOne(id: number) {
-
     return await this.prisma.user.findUnique({
       where: {
         id,
       }
     })
   }
-
   async findAll() {
     return await this.prisma.user.findMany()
     // return res;
+  }
+
+  async findByEmail(userEmail: string) {
+    return await this.prisma.user.findUnique({
+      where: {
+        email: userEmail
+      }
+    })
   }
 
 
