@@ -9,24 +9,40 @@ export class UserService {
   constructor(private readonly prisma: PrismaService) { }
 
   async create(createUserDto: CreateUserDto) {
-    // const res = this.prisma.user.create({
-    //   user: createUserDto  
-    // });
+    
+    // mostra a msg de erro apenas no terminal
+    const emailExist = await this.prisma.user.findFirst({
+      where: {
+        email: createUserDto.email,
+      }
+    })
+    if (emailExist) {
+      throw new Error("User e-mail already exists!");
+    }
 
     const user = {
       ...createUserDto,
       password: await bcrypt.hash(createUserDto.password, 10)
     }
-    return user;
-
+    return this.prisma.user.create({
+      data: user
+      
+    })
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  async findOne(id: number) {
+
+    return await this.prisma.user.findUnique({
+      where: {
+        id,
+      }
+    })
   }
-  // findAll() {
-    // return `This action returns all user`;
-  // }
+
+  async findAll() {
+    return await this.prisma.user.findMany()
+    // return res;
+  }
 
 
   // update(id: number, updateUserDto: UpdateUserDto) {

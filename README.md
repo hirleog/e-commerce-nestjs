@@ -28,7 +28,7 @@
 
 ## instructions
 
-follow this steps to run yout application
+follow this steps to run your application
 https://fabricadesinapse.gitbook.io/sinapse-book/nestjs/autenticacao-sistema-de-login-com-token-jwt
 
 ## Installation
