@@ -11,11 +11,11 @@ import {
       return super.canActivate(context);
     }
   
-    handleRequest(err, user) {
-      if (err || !user) {
-        throw new UnauthorizedException(err?.message);
-      }
+    // handleRequest(err, user) {
+    //   if (err || !user) {
+    //     throw new UnauthorizedException(err?.message);
+    //   }
   
-      return user;
-    }
+    //   return user;
+    // }
   }
