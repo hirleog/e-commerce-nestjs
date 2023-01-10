@@ -1,3 +1,4 @@
+import { ProductService } from './../product/product.service';
 import { LoginValidationMiddleware } from './middlewares/login-validation.middleware';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { JwtModule } from '@nestjs/jwt/dist';
@@ -22,6 +23,7 @@ import { LocalStrategy } from './strategy/local.strategy';
     AuthService,
     LocalStrategy,
     UserService,
+    ProductService,
     PrismaService,
     JwtStrategy,
   ]

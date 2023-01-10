@@ -1,10 +1,9 @@
 // NestJS
 import {
-    ExecutionContext,
-    Injectable,
-    UnauthorizedException,
-  } from '@nestjs/common';
-  import { Reflector } from '@nestjs/core';
+  ExecutionContext,
+  Injectable
+} from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
   // Password
   import { AuthGuard } from '@nestjs/passport';
   // Decorators

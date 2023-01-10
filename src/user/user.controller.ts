@@ -3,7 +3,7 @@ import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
   @IsPublic()
@@ -13,10 +13,10 @@ export class UserController {
   }
 
   @IsPublic()
-  @Get()
+  @Get('users')
   findAll() {
     return this.userService.findAll();
-  }
+}
   @IsPublic()
   @Get(':id')
   findOne(@Param('id') id: string) {
