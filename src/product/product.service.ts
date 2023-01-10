@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from './../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Product } from './entities/Product.entity';
 
 @Injectable()
 export class ProductService {
@@ -43,5 +42,8 @@ export class ProductService {
 
   remove(id: number) {
     return this.prisma.product.delete({ where: { id } });
+  }
+  removeAll() {
+    return this.prisma.product.deleteMany();
   }
 }

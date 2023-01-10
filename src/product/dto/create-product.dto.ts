@@ -1,19 +1,23 @@
 import { Product } from '../entities/Product.entity';
-import { IsString, MaxLength, MinLength } from "class-validator";
+import { IsInt, isInt, IsNumberString, IsString, maxLength, MaxLength, MinLength } from "class-validator";
 
-export class CreateProductDto extends Product{
+export class CreateProductDto extends Product {
 
     @IsString()
     type: string; // men, woman, kid
-   
+
     @MinLength(4)
     @MaxLength(20)
     @IsString()
     name: string;
 
-    @IsString()
+    @IsNumberString()
     price: string;
 
+    @MinLength(1)
+    @MaxLength(2)
     @IsString()
     size: string;
+
+    
 }

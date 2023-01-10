@@ -1,11 +1,10 @@
-import { User } from '../entities/user.entity';
 import {
-  IsEmail,
-  IsString,
+  IsEmail, IsPhoneNumber, IsString,
   Matches,
   MaxLength,
-  MinLength,
+  MinLength
 } from 'class-validator';
+import { User } from '../entities/user.entity';
 
 export class CreateUserDto extends User {
   @IsEmail()
@@ -19,6 +18,9 @@ export class CreateUserDto extends User {
 
   @IsString()
   name: string;
+
+  @IsPhoneNumber()
+  phone: string
 
   
 }

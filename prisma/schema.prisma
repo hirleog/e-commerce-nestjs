@@ -15,18 +15,19 @@ model User {
 
   email    String @unique
   password String
-
   name String
+  phone String @unique
 }
 
 model Product {
   id Int @id @default(autoincrement())
+  // id Int @id @default(uuid())
 
   type String // men, woman, kid
 
-  name String @unique
+  name String
 
   price String
-  
+
   size String
 }
