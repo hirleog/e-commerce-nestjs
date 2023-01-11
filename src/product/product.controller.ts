@@ -1,7 +1,8 @@
+import { Body, Controller, Delete, Get, Param, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { IsPublic } from './../auth/decorators/is-public.decorator';
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
+import { ProductService } from './product.service';
 // import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('product')
@@ -10,7 +11,10 @@ export class ProductController {
 
   @IsPublic()
   @Post('create-product')
-  create(@Body() createUserDto: CreateProductDto) {
+  @UseInterceptors(FilesInterceptor('image'))
+  create(@Body() createUserDto: CreateProductDto, @UploadedFile() file: Express.Multer.File) {
+    console.log(file);
+    
     return this.productService.create(createUserDto);
   }
 

@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { ProductModule } from './product/product.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports:
@@ -14,7 +15,10 @@ import { ProductModule } from './product/product.module';
       PrismaModule,
       UserModule,
       AuthModule,
-      ProductModule
+      ProductModule,
+      MulterModule.register({
+        dest: './uploads',
+      })
     ],
   controllers: [AppController],
   providers:
