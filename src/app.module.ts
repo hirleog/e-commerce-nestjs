@@ -17,7 +17,7 @@ import { MulterModule } from '@nestjs/platform-express';
       AuthModule,
       ProductModule,
       MulterModule.register({
-        dest: './uploads',
+        dest: './files',
       })
     ],
   controllers: [AppController],

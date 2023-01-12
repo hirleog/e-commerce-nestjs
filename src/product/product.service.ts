@@ -10,21 +10,11 @@ export class ProductService {
 
   async create(createProductDto: CreateProductDto) {
 
-    // mostra a msg de erro apenas no terminal
-    // const nameExist = this.prisma.product.findFirst({
-    //   where: {
-    //     name: createProductDto.name
-    //   }
-    // })
-    // if (nameExist) {
-    //   throw new Error("This product name already exists.");
-    // }
-
     const product = {
       ...createProductDto,
     }
     return await this.prisma.product.create({
-      data: product
+      data: product,
     })
   }
 

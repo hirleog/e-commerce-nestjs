@@ -6,18 +6,16 @@ export class CreateProductDto extends Product {
     @IsString()
     type: string; // men, woman, kid
 
-    @MinLength(4)
-    @MaxLength(20)
+    // @MinLength(4)
+    // @MaxLength(20)
     @IsString()
     name: string;
 
     @IsNumberString()
     price: string;
 
-    @MinLength(1)
-    @MaxLength(2)
+    // @MinLength(1)
+    // @MaxLength(2)
     @IsString()
     size: string;
-
-    
 }

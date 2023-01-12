@@ -31,3 +31,17 @@ model Product {
 
   size String
 }
+
+// model AbandonedCart {
+//   // id Int @id @default(autoincrement())
+//   id String @id @default(uuid())
+
+//   type String // men, woman, kid
+
+//   name String
+
+//   price String
+
+//   quantity String
+
+// }
